@@ -14,33 +14,6 @@ Start the application locally with
 poetry run uvicorn app.main:app --reload
 ```
 
-Send a local GET request to the main endpoint with:
-
-```bash
-curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{
-    "resource": "/", 
-    "path": "/", 
-    "httpMethod": "GET", 
-    "requestContext": {}, 
-    "multiValueQueryStringParameters": null
-}'
-```
-
-An example POST endpoint is available at `/example` which just adds two numbers together. Invoke this endpoing with:
-
-```bash
-curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" \
--H "Content-Type: application/json" \
--d '{ 
-    "resource": "/example", 
-    "path": "/example",
-    "httpMethod": "POST",
-    "requestContext": {},
-    "multiValueQueryStringParameters": null,
-    "body": "{\"a\": \"0.1\", \"b\": \"0.2\"}"
-}'
-```
-
 ## App Structure
 
 ```python
@@ -69,4 +42,45 @@ curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" \
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
+
+## Docker Usage
+
+Ensure you have Docker Engine or Docker Desktop running. Build the application into a lambda Docker image with 
+
+```bash
+docker build -t <image_name>
+```
+
+You can choose an arbitrary `<image_name>`. Run the Docker image locally with
+
+```bash
+docker run -p 9000:8080 <image_name>
+```
+
+Now you can send a local GET request to the test the endpoint with:
+
+```bash
+curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{
+    "resource": "/", 
+    "path": "/", 
+    "httpMethod": "GET", 
+    "requestContext": {}, 
+    "multiValueQueryStringParameters": null
+}'
+```
+
+An example POST endpoint is available at `/example` which just adds two numbers together. Invoke this endpoint with:
+
+```bash
+curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" \
+-H "Content-Type: application/json" \
+-d '{ 
+    "resource": "/example", 
+    "path": "/example",
+    "httpMethod": "POST",
+    "requestContext": {},
+    "multiValueQueryStringParameters": null,
+    "body": "{\"a\": \"0.1\", \"b\": \"0.2\"}"
+}'
 ```
