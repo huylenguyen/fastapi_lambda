@@ -13,4 +13,4 @@ RUN poetry config virtualenvs.create false --local
 RUN poetry install --no-root
 
 # Create Lambda handler
-CMD [ "app.main.handler" ]
+CMD ["app.main.handler"]
