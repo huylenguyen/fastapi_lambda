@@ -41,24 +41,26 @@ curl -X 'POST' \
 │   ├── __init__.py
 │   ├── main.py # Initializes the FastAPI application.
 │   ├── dependencies.py # Defines router dependencies
-│   ├── routers # Defines routes and endpoints
-│   │   └── __init__.py
-│   ├── crud # Defines CRUD operations
-│   │   └── __init__.py
-│   ├── schemas # Defines Pydantic schemas
-│   │   └── __init__.py  
-│   ├── database # Defines database models
-│   │   └── __init__.py
-│   ├── external_services # Defines functions requiring external services
-│   │   └── __init__.py
 │   ├── config # Defines configuration parameters
 │   │   ├── __init__.py
 │   │   └── settings.py # base settings
+│   ├── crud # Defines CRUD operations
+│   │   └── __init__.py
+│   ├── database # Defines database models
+│   │   └── __init__.py
+│   ├── external # Defines functions requiring external services
+│   │   └── __init__.py
+│   ├── routers # Defines routes and endpoints
+│   │   └── __init__.py
+│   ├── schemas # Defines Pydantic schemas
+│   │   └── __init__.py  
 │   └── utils # Utilities
 │   │   └── __init__.py
 ├── tests 
 │   │   └── __init__.py
-├── requirements.txt
+├── Dockerfile # Lambda container template
+├── pyproject.toml # application Python dependencies
+├── env.template # template for environment variables
 ├── .gitignore
 └── README.md
 ```
