@@ -55,9 +55,9 @@ curl -X 'POST' \
 │   ├── schemas # Defines Pydantic schemas
 │   │   └── __init__.py  
 │   └── utils # Utilities
-│   │   └── __init__.py
+│       └── __init__.py
 ├── tests 
-│   │   └── __init__.py
+│       └── __init__.py
 ├── Dockerfile # Lambda container template
 ├── pyproject.toml # application Python dependencies
 ├── env.template # template for environment variables
@@ -166,7 +166,7 @@ curl -X 'POST' \
 
 It's worth noting that newly created Lambdas have a timeout of 3 seconds. If your application takes longer to run, you can increase this up to 15 minutes. 
 
-## AWS SAM usage
+## Serverless usage
 In this section, we will deploy the application as an AWS Lambda function and invoke it via AWS API Gateway. For ease of use, we will perform configuration and deployment through [Serverless Framework](https://www.serverless.com/framework/docs/getting-started)
 
 TODO
